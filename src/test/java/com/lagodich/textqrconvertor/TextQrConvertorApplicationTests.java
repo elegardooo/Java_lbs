@@ -8,6 +8,7 @@ class TextQrConvertorApplicationTests {
 
 	@Test
 	void contextLoads() {
+		TextQrConvertorApplicationTests myClass = new TextQrConvertorApplicationTests();
 	}
 
 }
