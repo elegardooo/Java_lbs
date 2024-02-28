@@ -1,4 +1,4 @@
-package com.lagodich.textqrconvertor.services;
+package com.lagodich.textqrconvertor.service;
 
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;

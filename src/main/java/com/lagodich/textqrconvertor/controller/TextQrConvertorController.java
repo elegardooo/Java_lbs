@@ -1,6 +1,6 @@
-package com.lagodich.textqrconvertor.controllers;
+package com.lagodich.textqrconvertor.controller;
 
-import com.lagodich.textqrconvertor.services.TextQrConvertorService;
+import com.lagodich.textqrconvertor.service.TextQrConvertorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
