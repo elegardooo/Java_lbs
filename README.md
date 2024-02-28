@@ -77,6 +77,6 @@ The application uses the [QR Code API](https://goqr.me/) to fetch data. You need
 ```properties
 # application.properties
 
-# Sunrise Sunset API URL
+# QR Code API URL
 external.api.urlQrCode=http://api.qrserver.com/v1/create-qr-code/
 ```
