@@ -20,6 +20,8 @@ This is a basic REST API application built using [Spring Boot](https://spring.io
 ## Technologies Used
 
 - [Spring Boot](https://spring.io/projects/spring-boot): Web framework for building the REST API.
+- [Spring Data JPA](https://spring.io/projects/spring-data-jpa): Data access framework for interacting with the database.
+- [MySQL](https://www.mysql.com): Database for local and global use.
 - [QR Code API]( https://api.qrserver.com/v1/create-qr-code/): External API for convertion text into QR Code.
 
 ## Getting Started
@@ -30,6 +32,9 @@ Make sure you have the following installed:
 
 - Java (version 17 or higher)
 - Maven
+- MySQL server
+- MySQL driver
+- JPA
 
 ### Installation
 
