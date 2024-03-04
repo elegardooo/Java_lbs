@@ -52,7 +52,7 @@ public class QrCodeService {
 
     public QrCode getOneQrCode(Long id) throws QrCodeNotFoundException {
         if(qrCodeRepo.findById(id).isPresent()) {
-            QrCodeEntity qrCode = qrCodeRepo.findById(id).get();
+            QrCodeEntity qrCode = qrCodeRepo.findById(id).orElse(null);
             if(qrCode == null) {
                 throw new QrCodeNotFoundException(QR_ERROR_MSG);
             }
@@ -73,7 +73,10 @@ public class QrCodeService {
         if(qrCodeRepo.findByContent(qrCode.getContent()) != null) {
             throw new QrCodeAlreadyExistException("Qr code with this content already exist");
         }
-        QrCodeEntity updateQrCode = qrCodeRepo.findById(id).get();
+        QrCodeEntity updateQrCode = qrCodeRepo.findById(id).orElse(null);
+        if(updateQrCode == null) {
+            throw new QrCodeNotFoundException(QR_ERROR_MSG);
+        }
         updateQrCode.setContent(qrCode.getContent());
         updateQrCode.setSize(qrCode.getSize());
 
