@@ -51,37 +51,37 @@ public class QrCodeController {
     }
 
     @GetMapping(value = "/")
-    public ResponseEntity getOneQrCode(@RequestParam Long id) {
+    public <T> ResponseEntity<T> getOneQrCode(@RequestParam Long id) {
         try {
-            return ResponseEntity.ok(qrCodeService.getOneQrCode(id));
+            return (ResponseEntity<T>) ResponseEntity.ok(qrCodeService.getOneQrCode(id));
         } catch (QrCodeNotFoundException e) {
-            return ResponseEntity
+            return (ResponseEntity<T>) ResponseEntity
                     .badRequest()
                     .body(e.getMessage());
         } catch (Exception e) {
-            return ResponseEntity
+            return (ResponseEntity<T>) ResponseEntity
                     .badRequest()
                     .body(ERROR_MSG);
         }
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity deleteQrCode(@PathVariable Long id) {
+    public <T> ResponseEntity<T> deleteQrCode(@PathVariable Long id) {
         try {
-            return ResponseEntity.ok(qrCodeService.deleteQrCode(id));
+            return (ResponseEntity<T>) ResponseEntity.ok(qrCodeService.deleteQrCode(id));
         } catch (Exception e) {
-            return ResponseEntity
+            return (ResponseEntity<T>) ResponseEntity
                     .badRequest()
                     .body(ERROR_MSG);
         }
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity updateQrCode(@PathVariable Long id, @RequestBody QrCodeEntity qrCode) {
+    public <T>ResponseEntity<T> updateQrCode(@PathVariable Long id, @RequestBody QrCodeEntity qrCode) {
         try {
-            return ResponseEntity.ok(qrCodeService.updateQrCode(id, qrCode));
+            return (ResponseEntity<T>) ResponseEntity.ok(qrCodeService.updateQrCode(id, qrCode));
         } catch (QrCodeNotFoundException | QrCodeAlreadyExistException e) {
-            return ResponseEntity
+            return (ResponseEntity<T>) ResponseEntity
                     .badRequest()
                     .body(e.getMessage());
         }

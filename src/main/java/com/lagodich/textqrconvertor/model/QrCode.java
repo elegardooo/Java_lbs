@@ -3,7 +3,6 @@ package com.lagodich.textqrconvertor.model;
 import com.lagodich.textqrconvertor.entity.QrCodeEntity;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class QrCode {
     private Long id;
@@ -15,7 +14,7 @@ public class QrCode {
         model.setId(entity.getId());
         model.setContent(entity.getContent());
         model.setSize(entity.getSize());
-        model.setColors(entity.getColors().stream().map(QrCodeColor::toModel).collect(Collectors.toList()));
+        model.setColors(entity.getColors().stream().map(QrCodeColor::toModel).toList());
         return model;
     }
     public QrCode() { //def

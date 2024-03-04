@@ -20,46 +20,46 @@ public class QrCodeColorController {
     }
 
     @PostMapping(value = "/")
-    public ResponseEntity createColors(@RequestBody QrCodeColorEntity colors,
+    public <T> ResponseEntity <T> createColors(@RequestBody QrCodeColorEntity colors,
                                        @RequestParam Long qrCodeId) {
         try {
-            return ResponseEntity.ok(qrCodeColorService.createColors(colors, qrCodeId));
+            return (ResponseEntity<T>) ResponseEntity.ok(qrCodeColorService.createColors(colors, qrCodeId));
         } catch (Exception e) {
-            return ResponseEntity
+            return (ResponseEntity<T>) ResponseEntity
                     .badRequest()
                     .body(ERROR_MSG);
         }
     }
 
     @GetMapping(value="/")
-    public ResponseEntity getColors(@RequestParam Long id) {
+    public <T> ResponseEntity <T> getColors(@RequestParam Long id) {
         try {
-            return ResponseEntity.ok(qrCodeColorService.getColors(id));
+            return (ResponseEntity<T>) ResponseEntity.ok(qrCodeColorService.getColors(id));
         } catch (Exception e) {
-            return ResponseEntity
+            return (ResponseEntity<T>) ResponseEntity
                     .badRequest()
                     .body(ERROR_MSG);
         }
     }
 
     @PutMapping(value = "/")
-    public ResponseEntity updateColors(@RequestBody QrCodeColorEntity colors,
+    public <T> ResponseEntity <T> updateColors(@RequestBody QrCodeColorEntity colors,
                                        @RequestParam Long id) {
         try {
-            return ResponseEntity.ok(qrCodeColorService.updateColors(colors, id));
+            return (ResponseEntity<T>) ResponseEntity.ok(qrCodeColorService.updateColors(colors, id));
         } catch (Exception e) {
-            return ResponseEntity
+            return (ResponseEntity<T>) ResponseEntity
                     .badRequest()
                     .body(ERROR_MSG);
         }
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity deleteColors(@PathVariable Long id) {
+    public <T> ResponseEntity <T> deleteColors(@PathVariable Long id) {
         try {
-            return ResponseEntity.ok(qrCodeColorService.deleteColors(id));
+            return (ResponseEntity<T>) ResponseEntity.ok(qrCodeColorService.deleteColors(id));
         } catch (Exception e) {
-            return ResponseEntity
+            return (ResponseEntity<T>) ResponseEntity
                     .badRequest()
                     .body(ERROR_MSG);
         }

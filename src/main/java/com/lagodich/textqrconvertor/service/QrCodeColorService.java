@@ -31,6 +31,7 @@ public class QrCodeColorService {
     }
 
     public QrCodeColor getColors(Long id) throws QrCodeNotFoundException {
+
         QrCodeColorEntity qrCodeColor = qrCodeColorRepo.findById(id).get();
         if(qrCodeColor == null) {
             throw new QrCodeNotFoundException(QR_ERROR_MSG);
