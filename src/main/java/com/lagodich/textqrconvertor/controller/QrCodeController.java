@@ -1,6 +1,6 @@
 package com.lagodich.textqrconvertor.controller;
 
-import com.lagodich.textqrconvertor.entity.QrCodeEntity;
+import com.lagodich.textqrconvertor.entity.QrCode;
 import com.lagodich.textqrconvertor.exceptions.QrCodeAlreadyExistException;
 import com.lagodich.textqrconvertor.exceptions.QrCodeNotFoundException;
 import com.lagodich.textqrconvertor.service.QrCodeService;
@@ -33,7 +33,7 @@ public class QrCodeController {
     }
 
     @PostMapping(value = "/")
-    public ResponseEntity<String> registration(@RequestBody QrCodeEntity qrCode) {
+    public ResponseEntity<String> registration(@RequestBody QrCode qrCode) {
         try {
             qrCodeService.registration(qrCode);
             return ResponseEntity
@@ -77,7 +77,7 @@ public class QrCodeController {
     }
 
     @PutMapping(value = "/{id}")
-    public <T>ResponseEntity<T> updateQrCode(@PathVariable Long id, @RequestBody QrCodeEntity qrCode) {
+    public <T>ResponseEntity<T> updateQrCode(@PathVariable Long id, @RequestBody QrCode qrCode) {
         try {
             return (ResponseEntity<T>) ResponseEntity.ok(qrCodeService.updateQrCode(id, qrCode));
         } catch (QrCodeNotFoundException | QrCodeAlreadyExistException e) {

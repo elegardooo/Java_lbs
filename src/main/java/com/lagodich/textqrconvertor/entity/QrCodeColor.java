@@ -3,7 +3,7 @@ package com.lagodich.textqrconvertor.entity;
 import jakarta.persistence.*;
 
 @Entity
-public class QrCodeColorEntity {
+public class QrCodeColor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -12,9 +12,9 @@ public class QrCodeColorEntity {
 
     @ManyToOne
     @JoinColumn(name = "qr_code_id")
-    private QrCodeEntity qrCode;
+    private QrCode qrCode;
 
-    public QrCodeColorEntity() { //def
+    public QrCodeColor() { //def
     }
 
     public Long getId() {
@@ -41,11 +41,11 @@ public class QrCodeColorEntity {
         this.bgcolor = bgcolor;
     }
 
-    public QrCodeEntity getQrCode() {
+    public QrCode getQrCode() {
         return qrCode;
     }
 
-    public void setQrCode(QrCodeEntity qrCode) {
+    public void setQrCode(QrCode qrCode) {
         this.qrCode = qrCode;
     }
 }

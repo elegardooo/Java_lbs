@@ -1,10 +1,10 @@
 package com.lagodich.textqrconvertor.service;
 
-import com.lagodich.textqrconvertor.entity.QrCodeColorEntity;
-import com.lagodich.textqrconvertor.entity.QrCodeEntity;
+import com.lagodich.textqrconvertor.entity.QrCodeColor;
+import com.lagodich.textqrconvertor.entity.QrCode;
 import com.lagodich.textqrconvertor.exceptions.QrCodeAlreadyExistException;
 import com.lagodich.textqrconvertor.exceptions.QrCodeNotFoundException;
-import com.lagodich.textqrconvertor.model.QrCodeColor;
+import com.lagodich.textqrconvertor.dto.QrCodeColorDto;
 import com.lagodich.textqrconvertor.repository.QrCodeColorRepo;
 import com.lagodich.textqrconvertor.repository.QrCodeRepo;
 import org.springframework.stereotype.Service;
@@ -20,31 +20,31 @@ public class QrCodeColorService {
         this.qrCodeColorRepo = qrCodeColorRepo;
     }
 
-    public QrCodeColor createColors(QrCodeColorEntity color, Long qrCodeId) throws QrCodeAlreadyExistException {
+    public QrCodeColorDto createColors(QrCodeColor color, Long qrCodeId) throws QrCodeAlreadyExistException {
         if(qrCodeColorRepo.findByColor(color.getColor()) != null &&
                 qrCodeColorRepo.findByBgcolor(color.getBgcolor()) != null) {
             throw new QrCodeAlreadyExistException("Qr code with this colors already exist");
         }
-        QrCodeEntity qrCode = qrCodeRepo.findById(qrCodeId).orElse(null);
+        QrCode qrCode = qrCodeRepo.findById(qrCodeId).orElse(null);
         color.setQrCode(qrCode);
-        return QrCodeColor.toModel(qrCodeColorRepo.save(color));
+        return QrCodeColorDto.toModel(qrCodeColorRepo.save(color));
     }
 
-    public QrCodeColor getColors(Long id) throws QrCodeNotFoundException {
+    public QrCodeColorDto getColors(Long id) throws QrCodeNotFoundException {
 
-        QrCodeColorEntity qrCodeColor = qrCodeColorRepo.findById(id).orElse(null);
+        QrCodeColor qrCodeColor = qrCodeColorRepo.findById(id).orElse(null);
         if(qrCodeColor == null) {
             throw new QrCodeNotFoundException(QR_ERROR_MSG);
         }
-        return QrCodeColor.toModel(qrCodeColor);
+        return QrCodeColorDto.toModel(qrCodeColor);
 
     }
-    public QrCodeColor updateColors(QrCodeColorEntity color, Long id) throws QrCodeAlreadyExistException, QrCodeNotFoundException {
+    public QrCodeColorDto updateColors(QrCodeColor color, Long id) throws QrCodeAlreadyExistException, QrCodeNotFoundException {
         if(qrCodeColorRepo.findByColor(color.getColor()) != null &&
                 qrCodeColorRepo.findByBgcolor(color.getBgcolor()) != null) {
             throw new QrCodeAlreadyExistException("Qr code with this colors already exist");
         }
-        QrCodeColorEntity updateQrCodeColor = qrCodeColorRepo.findById(id).orElse(null);
+        QrCodeColor updateQrCodeColor = qrCodeColorRepo.findById(id).orElse(null);
         if (updateQrCodeColor == null)
         {
             throw new QrCodeNotFoundException(QR_ERROR_MSG);
@@ -52,7 +52,7 @@ public class QrCodeColorService {
         updateQrCodeColor.setColor(color.getColor());
         updateQrCodeColor.setBgcolor(color.getBgcolor());
         qrCodeColorRepo.save(updateQrCodeColor);
-        return QrCodeColor.toModel(updateQrCodeColor);
+        return QrCodeColorDto.toModel(updateQrCodeColor);
     }
 
     public Long deleteColors(Long id) {

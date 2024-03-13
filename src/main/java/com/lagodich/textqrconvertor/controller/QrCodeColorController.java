@@ -1,6 +1,6 @@
 package com.lagodich.textqrconvertor.controller;
 
-import com.lagodich.textqrconvertor.entity.QrCodeColorEntity;
+import com.lagodich.textqrconvertor.entity.QrCodeColor;
 import com.lagodich.textqrconvertor.service.QrCodeColorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +20,7 @@ public class QrCodeColorController {
     }
 
     @PostMapping(value = "/")
-    public <T> ResponseEntity <T> createColors(@RequestBody QrCodeColorEntity colors,
+    public <T> ResponseEntity <T> createColors(@RequestBody QrCodeColor colors,
                                        @RequestParam Long qrCodeId) {
         try {
             return (ResponseEntity<T>) ResponseEntity.ok(qrCodeColorService.createColors(colors, qrCodeId));
@@ -43,7 +43,7 @@ public class QrCodeColorController {
     }
 
     @PutMapping(value = "/")
-    public <T> ResponseEntity <T> updateColors(@RequestBody QrCodeColorEntity colors,
+    public <T> ResponseEntity <T> updateColors(@RequestBody QrCodeColor colors,
                                        @RequestParam Long id) {
         try {
             return (ResponseEntity<T>) ResponseEntity.ok(qrCodeColorService.updateColors(colors, id));

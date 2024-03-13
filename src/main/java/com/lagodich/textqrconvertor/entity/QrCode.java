@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-public class QrCodeEntity {
+public class QrCode {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -13,16 +13,16 @@ public class QrCodeEntity {
     private String size;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "qrCode")
-    private List<QrCodeColorEntity> colors;
+    private List<QrCodeColor> colors;
 
-    public QrCodeEntity() { //def
+    public QrCode() { //def
     }
 
-    public List<QrCodeColorEntity> getColors() {
+    public List<QrCodeColor> getColors() {
         return colors;
     }
 
-    public void setColors(List<QrCodeColorEntity> colors) {
+    public void setColors(List<QrCodeColor> colors) {
         this.colors = colors;
     }
 

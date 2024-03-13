@@ -1,9 +1,9 @@
 package com.lagodich.textqrconvertor.service;
 
-import com.lagodich.textqrconvertor.entity.QrCodeEntity;
+import com.lagodich.textqrconvertor.entity.QrCode;
 import com.lagodich.textqrconvertor.exceptions.QrCodeAlreadyExistException;
 import com.lagodich.textqrconvertor.exceptions.QrCodeNotFoundException;
-import com.lagodich.textqrconvertor.model.QrCode;
+import com.lagodich.textqrconvertor.dto.QrCodeDto;
 import com.lagodich.textqrconvertor.repository.QrCodeRepo;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
@@ -43,20 +43,20 @@ public class QrCodeService {
                     .block();
         }
     }
-    public QrCodeEntity registration(QrCodeEntity qrCode) throws QrCodeAlreadyExistException {
+    public QrCode registration(QrCode qrCode) throws QrCodeAlreadyExistException {
         if(qrCodeRepo.findByContent(qrCode.getContent()) != null) {
             throw new QrCodeAlreadyExistException("Qr code with this content already exist");
         }
         return qrCodeRepo.save(qrCode);
     }
 
-    public QrCode getOneQrCode(Long id) throws QrCodeNotFoundException {
+    public QrCodeDto getOneQrCode(Long id) throws QrCodeNotFoundException {
         if(qrCodeRepo.findById(id).isPresent()) {
-            QrCodeEntity qrCode = qrCodeRepo.findById(id).orElse(null);
+            QrCode qrCode = qrCodeRepo.findById(id).orElse(null);
             if(qrCode == null) {
                 throw new QrCodeNotFoundException(QR_ERROR_MSG);
             }
-            return QrCode.toModel(qrCode);
+            return QrCodeDto.toModel(qrCode);
         }
         throw new QrCodeNotFoundException(QR_ERROR_MSG);
     }
@@ -66,14 +66,14 @@ public class QrCodeService {
         return id;
     }
 
-    public QrCodeEntity updateQrCode(Long id, QrCodeEntity qrCode) throws QrCodeNotFoundException, QrCodeAlreadyExistException {
+    public QrCode updateQrCode(Long id, QrCode qrCode) throws QrCodeNotFoundException, QrCodeAlreadyExistException {
         if(qrCodeRepo.findById(id).isEmpty()) {
             throw new QrCodeNotFoundException(QR_ERROR_MSG);
         }
         if(qrCodeRepo.findByContent(qrCode.getContent()) != null) {
             throw new QrCodeAlreadyExistException("Qr code with this content already exist");
         }
-        QrCodeEntity updateQrCode = qrCodeRepo.findById(id).orElse(null);
+        QrCode updateQrCode = qrCodeRepo.findById(id).orElse(null);
         if(updateQrCode == null) {
             throw new QrCodeNotFoundException(QR_ERROR_MSG);
         }

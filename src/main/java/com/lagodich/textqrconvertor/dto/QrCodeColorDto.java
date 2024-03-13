@@ -1,21 +1,21 @@
-package com.lagodich.textqrconvertor.model;
+package com.lagodich.textqrconvertor.dto;
 
-import com.lagodich.textqrconvertor.entity.QrCodeColorEntity;
+import com.lagodich.textqrconvertor.entity.QrCodeColor;
 
-public class QrCodeColor {
+public class QrCodeColorDto {
     private Long id;
     private String color;
     private String bgcolor;
 
-    public static QrCodeColor toModel(QrCodeColorEntity entity) {
-        QrCodeColor model = new QrCodeColor();
+    public static QrCodeColorDto toModel(QrCodeColor entity) {
+        QrCodeColorDto model = new QrCodeColorDto();
         model.setId(entity.getId());
         model.setColor(entity.getColor());
         model.setBgcolor(entity.getBgcolor());
         return model;
     }
 
-    public QrCodeColor() { //def
+    public QrCodeColorDto() { //def
     }
 
     public Long getId() {

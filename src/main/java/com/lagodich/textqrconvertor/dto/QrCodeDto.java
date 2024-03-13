@@ -1,30 +1,30 @@
-package com.lagodich.textqrconvertor.model;
+package com.lagodich.textqrconvertor.dto;
 
-import com.lagodich.textqrconvertor.entity.QrCodeEntity;
+import com.lagodich.textqrconvertor.entity.QrCode;
 
 import java.util.List;
 
-public class QrCode {
+public class QrCodeDto {
     private Long id;
     private String content;
     private String size;
-    private List<QrCodeColor> colors;
-    public static QrCode toModel(QrCodeEntity entity) {
-        QrCode model = new QrCode();
+    private List<QrCodeColorDto> colors;
+    public static QrCodeDto toModel(QrCode entity) {
+        QrCodeDto model = new QrCodeDto();
         model.setId(entity.getId());
         model.setContent(entity.getContent());
         model.setSize(entity.getSize());
-        model.setColors(entity.getColors().stream().map(QrCodeColor::toModel).toList());
+        model.setColors(entity.getColors().stream().map(QrCodeColorDto::toModel).toList());
         return model;
     }
-    public QrCode() { //def
+    public QrCodeDto() { //def
     }
 
-    public List<QrCodeColor> getColors() {
+    public List<QrCodeColorDto> getColors() {
         return colors;
     }
 
-    public void setColors(List<QrCodeColor> colors) {
+    public void setColors(List<QrCodeColorDto> colors) {
         this.colors = colors;
     }
 
