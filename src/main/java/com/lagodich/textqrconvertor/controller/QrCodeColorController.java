@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/qr-code/colors")
 public class QrCodeColorController {
@@ -52,6 +54,12 @@ public class QrCodeColorController {
                     .body(ERROR_MSG);
         }
     }
+
+    @GetMapping(value = "/database/{colorId}")  //useful request
+    public List<QrCodeColorDto> getColorByColorId(@PathVariable Long colorId) {
+
+    }
+
 
     @PutMapping(value = "/")
     public <T> ResponseEntity <T> updateColors(@RequestBody QrCodeColor colors,
