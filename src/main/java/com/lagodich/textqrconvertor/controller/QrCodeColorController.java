@@ -57,7 +57,7 @@ public class QrCodeColorController {
 
     @GetMapping(value = "/database/{colorId}")  //useful request
     public List<QrCodeColorDto> getColorByColorId(@PathVariable Long colorId) {
-
+        return qrCodeColorService.getQrCodeColorById(colorId);
     }
 
 

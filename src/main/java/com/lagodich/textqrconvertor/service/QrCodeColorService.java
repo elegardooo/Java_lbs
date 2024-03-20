@@ -9,6 +9,9 @@ import com.lagodich.textqrconvertor.repository.QrCodeColorRepo;
 import com.lagodich.textqrconvertor.repository.QrCodeRepo;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class QrCodeColorService {
     private static final String QR_ERROR_MSG = "Qr code was not found";
@@ -38,6 +41,13 @@ public class QrCodeColorService {
         }
         return QrCodeColorDto.toModel(qrCodeColor);
 
+    }
+    public List<QrCodeColorDto> getQrCodeColorById(Long colorId) {
+        List<QrCodeColorDto> qrCodeColorDto = new ArrayList<>();
+        for (QrCodeColor qrCodeColor : qrCodeColorRepo.findQrCodeColorByColorId(colorId)) {
+            qrCodeColorDto.add(QrCodeColorDto.toModel(qrCodeColor));
+        }
+        return qrCodeColorDto;
     }
     public QrCodeColorDto updateColors(QrCodeColor color, Long id) throws QrCodeAlreadyExistException, QrCodeNotFoundException {
         if(qrCodeColorRepo.findByColor(color.getColor()) != null &&
