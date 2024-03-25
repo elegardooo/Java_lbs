@@ -1,54 +1,55 @@
 package com.lagodich.textqrconvertor.dto;
 
 import com.lagodich.textqrconvertor.entity.QrCode;
-
 import java.util.List;
 
 public class QrCodeDto {
-    private Long id;
-    private String content;
-    private String size;
-    private List<QrCodeColorDto> colors;
-    public static QrCodeDto toModel(QrCode entity) {
-        QrCodeDto model = new QrCodeDto();
-        model.setId(entity.getId());
-        model.setContent(entity.getContent());
-        model.setSize(entity.getSize());
-        model.setColors(entity.getColors().stream().map(QrCodeColorDto::toModel).toList());
-        return model;
-    }
-    public QrCodeDto() { //def
-    }
+  private Long id;
+  private String content;
+  private String size;
+  private List<QrCodeColorDto> colors;
 
-    public List<QrCodeColorDto> getColors() {
-        return colors;
-    }
+  public static QrCodeDto toModel(QrCode entity) {
+    QrCodeDto model = new QrCodeDto();
+    model.setId(entity.getId());
+    model.setContent(entity.getContent());
+    model.setSize(entity.getSize());
+    model.setColors(entity.getColors().stream().map(QrCodeColorDto::toModel).toList());
+    return model;
+  }
 
-    public void setColors(List<QrCodeColorDto> colors) {
-        this.colors = colors;
-    }
+  public QrCodeDto() { //def
+  }
 
-    public Long getId() {
-        return id;
-    }
+  public List<QrCodeColorDto> getColors() {
+    return colors;
+  }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public void setColors(List<QrCodeColorDto> colors) {
+    this.colors = colors;
+  }
 
-    public String getContent() {
-        return content;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public String getSize() {
-        return size;
-    }
+  public String getContent() {
+    return content;
+  }
 
-    public void setSize(String size) {
-        this.size = size;
-    }
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public String getSize() {
+    return size;
+  }
+
+  public void setSize(String size) {
+    this.size = size;
+  }
 }

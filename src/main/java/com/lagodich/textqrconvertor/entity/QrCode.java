@@ -1,52 +1,56 @@
 package com.lagodich.textqrconvertor.entity;
 
-import jakarta.persistence.*;
-
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import java.util.List;
 
 @Entity
 public class QrCode {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String content;
-    private String size;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
+  private String content;
+  private String size;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "qrCode")
+  @OneToMany(cascade = CascadeType.ALL, mappedBy = "qrCode")
     private List<QrCodeColor> colors;
 
-    public QrCode() { //def
-    }
+  public QrCode() { //def
+  }
 
-    public List<QrCodeColor> getColors() {
-        return colors;
-    }
+  public List<QrCodeColor> getColors() {
+    return colors;
+  }
 
-    public void setColors(List<QrCodeColor> colors) {
-        this.colors = colors;
-    }
+  public void setColors(List<QrCodeColor> colors) {
+    this.colors = colors;
+  }
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public String getContent() {
-        return content;
-    }
+  public String getContent() {
+    return content;
+  }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+  public void setContent(String content) {
+    this.content = content;
+  }
 
-    public String getSize() {
-        return size;
-    }
+  public String getSize() {
+    return size;
+  }
 
-    public void setSize(String size) {
-        this.size = size;
-    }
+  public void setSize(String size) {
+    this.size = size;
+  }
 }

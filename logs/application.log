@@ -1,0 +1,13 @@
+2024-03-25 16:27:32,315 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 400 - Bad request
+2024-03-25 16:27:32,572 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 404 - No endpoint GET /favicon.ico.
+2024-03-25 16:29:10,908 INFO  --- c.l.t.controller.QrCodeController : GET endpoint /api/v1/qr-code was called
+2024-03-25 16:30:28,308 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 404 - No endpoint OPTIONS /.
+2024-03-25 16:30:28,321 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 404 - No endpoint GET /.
+2024-03-25 16:31:03,376 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 404 - No endpoint GET /q/swagger-ui/.
+2024-03-25 16:31:08,014 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 404 - No endpoint GET /q/swagger-ui.
+2024-03-25 16:31:35,119 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 404 - No endpoint OPTIONS /my.json.
+2024-03-25 16:31:35,140 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 404 - No endpoint GET /my.json.
+2024-03-25 16:32:28,214 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 404 - No endpoint GET /swaggger.json.
+2024-03-25 16:32:32,743 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 404 - No endpoint GET /swagger.json.
+2024-03-25 16:33:24,141 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 404 - No endpoint GET /swagger-u.
+2024-03-25 16:33:32,534 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 404 - No endpoint GET /swagger.
