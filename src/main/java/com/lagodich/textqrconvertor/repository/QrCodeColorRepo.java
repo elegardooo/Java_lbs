@@ -11,7 +11,7 @@ public interface QrCodeColorRepo extends CrudRepository<QrCodeColor, Long> {
 
   QrCodeColor findByBgcolor(String bgcolor);
 
-  @Query("SELECT qcc FROM QrCodeColor qcc WHERE qcc.qrCode.id = :colorId")
+  @Query(value = "SELECT * FROM Qr_Code_Color qcc WHERE qcc.qr_Code_id = :colorId", nativeQuery = true)
   List<QrCodeColor> findQrCodeColorByColorId(@Param("colorId") Long colorId);
 
 }

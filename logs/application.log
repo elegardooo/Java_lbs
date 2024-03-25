@@ -11,3 +11,18 @@
 2024-03-25 16:32:32,743 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 404 - No endpoint GET /swagger.json.
 2024-03-25 16:33:24,141 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 404 - No endpoint GET /swagger-u.
 2024-03-25 16:33:32,534 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 404 - No endpoint GET /swagger.
+2024-03-25 21:45:16,943 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} was called
+2024-03-25 21:45:16,997 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 500 - JDBC exception executing SQL [SELECT qcc FROM QrCodeColor qcc WHERE qcc.qrCode.id = ?] [Table 'qrconvertor.qrcodecolor' doesn't exist] [n/a]; SQL [n/a]
+2024-03-25 21:47:43,254 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} was called
+2024-03-25 21:47:43,303 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 500 - JDBC exception executing SQL [SELECT qcc FROM QrCodeColor qcc WHERE qcc.qrCode.id = ?] [Table 'qrconvertor.qrcodecolor' doesn't exist] [n/a]; SQL [n/a]
+2024-03-25 21:47:44,014 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} was called
+2024-03-25 21:47:44,016 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 500 - JDBC exception executing SQL [SELECT qcc FROM QrCodeColor qcc WHERE qcc.qrCode.id = ?] [Table 'qrconvertor.qrcodecolor' doesn't exist] [n/a]; SQL [n/a]
+2024-03-25 21:52:13,839 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} was called
+2024-03-25 21:52:13,881 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 500 - JDBC exception executing SQL [SELECT qcc FROM QrCodeColor qcc WHERE qcc.qrCode.id = ?] [Table 'qrconvertor.qrcodecolor' doesn't exist] [n/a]; SQL [n/a]
+2024-03-25 21:53:30,105 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} was called
+2024-03-25 21:53:30,146 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 500 - JDBC exception executing SQL [SELECT qcc FROM Qr_Code_Color qcc WHERE qcc.qrCode.id = ?] [Unknown column 'qcc' in 'field list'] [n/a]; SQL [n/a]
+2024-03-25 21:53:31,335 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} was called
+2024-03-25 21:53:31,336 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 500 - JDBC exception executing SQL [SELECT qcc FROM Qr_Code_Color qcc WHERE qcc.qrCode.id = ?] [Unknown column 'qcc' in 'field list'] [n/a]; SQL [n/a]
+2024-03-25 21:55:05,491 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} was called
+2024-03-25 21:55:05,532 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 500 - JDBC exception executing SQL [SELECT * FROM Qr_Code_Color qcc WHERE qcc.qrCode.id = ?] [Unknown column 'qcc.qrCode.id' in 'where clause'] [n/a]; SQL [n/a]
+2024-03-25 21:56:19,442 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} was called
