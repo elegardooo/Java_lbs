@@ -54,8 +54,10 @@ public class QrCodeColorController {
     try {
       QrCodeColorDto qrCodeColorDto = responseCache.getQrCodeColor(id);
       if (qrCodeColorDto != null) {
+        log.info("Found qrCodeColorDto in cache");
         return (ResponseEntity<T>) ResponseEntity.ok(qrCodeColorDto);
       } else {
+        log.info("Saving qrCodeColorDto in cache");
         qrCodeColorDto = qrCodeColorService.getColors(id);
         responseCache.saveQrCodeColor(id, qrCodeColorDto);
         return (ResponseEntity<T>) ResponseEntity.ok(qrCodeColorDto);
@@ -91,6 +93,8 @@ public class QrCodeColorController {
     public <T> ResponseEntity<T> deleteColors(@PathVariable Long id) {
     log.info("DELETE endpoint /api/v1/qr-code/colors/{id} was called");
     try {
+      responseCache.removeQrCodeColor(id);
+      log.info("Color was removed from cache");
       return (ResponseEntity<T>) ResponseEntity.ok(qrCodeColorService.deleteColors(id));
     } catch (Exception e) {
       return (ResponseEntity<T>) ResponseEntity

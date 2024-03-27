@@ -26,3 +26,6 @@
 2024-03-25 21:55:05,491 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} was called
 2024-03-25 21:55:05,532 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 500 - JDBC exception executing SQL [SELECT * FROM Qr_Code_Color qcc WHERE qcc.qrCode.id = ?] [Unknown column 'qcc.qrCode.id' in 'where clause'] [n/a]; SQL [n/a]
 2024-03-25 21:56:19,442 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} was called
+2024-03-27 23:09:31,766 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} was called
+2024-03-27 23:14:11,936 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/{id} was called
+2024-03-27 23:14:11,937 INFO  --- c.l.t.c.QrCodeColorController : Saving qrCodeColorDto in cache
