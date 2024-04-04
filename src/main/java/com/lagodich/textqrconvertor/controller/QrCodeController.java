@@ -1,9 +1,11 @@
 package com.lagodich.textqrconvertor.controller;
 
+import com.lagodich.textqrconvertor.dto.QrCodeDto;
 import com.lagodich.textqrconvertor.entity.QrCode;
 import com.lagodich.textqrconvertor.exceptions.QrCodeAlreadyExistException;
 import com.lagodich.textqrconvertor.exceptions.QrCodeNotFoundException;
 import com.lagodich.textqrconvertor.service.QrCodeService;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -44,10 +46,10 @@ public class QrCodeController {
   }
 
   @PostMapping(value = "/")
-    public ResponseEntity<String> registration(@RequestBody QrCode qrCode) {
+    public ResponseEntity<String> createQrCode(@RequestBody QrCode qrCode) {
     log.info("POST endpoint /api/v1/qr-code/ was called");
     try {
-      qrCodeService.registration(qrCode);
+      qrCodeService.createQrCode(qrCode);
       return ResponseEntity
                     .ok()
                     .body("qrCode was successfully saved");
@@ -60,6 +62,17 @@ public class QrCodeController {
                     .badRequest()
                     .body(ERROR_MSG);
     }
+  }
+
+  @PostMapping(value = "/add/list")
+    public <T> ResponseEntity<T> createQrCodes(@RequestBody List<QrCode> qrCodes) {
+    log.info("POST endpoint /api/v1/qr-code/add/list was called");
+    qrCodes = qrCodes.stream()
+            .toList();
+    List<QrCode> createdQrCodes = qrCodeService.createQrCodes(qrCodes);
+    return (ResponseEntity<T>) ResponseEntity
+            .ok()
+            .body(createdQrCodes);
   }
 
   @GetMapping(value = "/")

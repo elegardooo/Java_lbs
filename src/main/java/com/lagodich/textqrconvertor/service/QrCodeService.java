@@ -5,6 +5,9 @@ import com.lagodich.textqrconvertor.entity.QrCode;
 import com.lagodich.textqrconvertor.exceptions.QrCodeAlreadyExistException;
 import com.lagodich.textqrconvertor.exceptions.QrCodeNotFoundException;
 import com.lagodich.textqrconvertor.repository.QrCodeRepo;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.StreamSupport;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -45,11 +48,19 @@ public class QrCodeService {
     }
   }
 
-  public QrCode registration(QrCode qrCode) throws QrCodeAlreadyExistException {
+  public QrCode createQrCode(QrCode qrCode) throws QrCodeAlreadyExistException {
     if (qrCodeRepo.findByContent(qrCode.getContent()) != null) {
       throw new QrCodeAlreadyExistException();
     }
     return qrCodeRepo.save(qrCode);
+  }
+
+  public List<QrCode> createQrCodes(List<QrCode> qrCodes) {
+    Iterable<QrCode> savedQrCodesIterable = qrCodeRepo.saveAll(qrCodes);
+    List<QrCode> qrCodeList = new ArrayList<>();
+    StreamSupport.stream(savedQrCodesIterable.spliterator(), false)
+            .forEach(qrCodeList::add);
+    return qrCodeList;
   }
 
   public QrCodeDto getOneQrCode(Long id) throws QrCodeNotFoundException {

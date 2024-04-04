@@ -18,6 +18,15 @@ public class QrCodeDto {
     return model;
   }
 
+  public static QrCode toEntity(QrCodeDto qrCodeDto) {
+    QrCode qrCode = new QrCode();
+    qrCode.setId(qrCodeDto.getId());
+    qrCode.setContent(qrCodeDto.getContent());
+    qrCode.setSize(qrCodeDto.getSize());
+    qrCode.setColors(null);
+    return qrCode;
+  }
+
   public QrCodeDto() { //def
   }
 

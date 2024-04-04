@@ -29,3 +29,49 @@
 2024-03-27 23:09:31,766 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} was called
 2024-03-27 23:14:11,936 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/{id} was called
 2024-03-27 23:14:11,937 INFO  --- c.l.t.c.QrCodeColorController : Saving qrCodeColorDto in cache
+2024-04-04 23:11:24,441 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 405 - Request method 'GET' is not supported
+2024-04-04 23:11:31,846 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 405 - Request method 'POST' is not supported
+2024-04-04 23:11:34,271 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 405 - Request method 'GET' is not supported
+2024-04-04 23:11:39,521 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 404 - No endpoint GET /api/v1/qr-codeee.
+2024-04-04 23:12:29,814 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/{id} was called
+2024-04-04 23:12:29,814 INFO  --- c.l.t.c.QrCodeColorController : Saving qrCodeColorDto in cache
+2024-04-04 23:12:54,348 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 400 - Bad request
+2024-04-04 23:14:18,867 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/{id} was called
+2024-04-04 23:14:18,867 INFO  --- c.l.t.c.QrCodeColorController : Saving qrCodeColorDto in cache
+2024-04-04 23:16:37,573 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/{id} was called
+2024-04-04 23:16:37,573 INFO  --- c.l.t.c.QrCodeColorController : Saving qrCodeColorDto in cache
+2024-04-04 23:16:39,006 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/{id} was called
+2024-04-04 23:16:39,006 INFO  --- c.l.t.c.QrCodeColorController : Saving qrCodeColorDto in cache
+2024-04-04 23:18:24,745 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/{id} was called
+2024-04-04 23:18:24,745 INFO  --- c.l.t.c.QrCodeColorController : Saving qrCodeColorDto in cache
+2024-04-04 23:18:27,414 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/{id} was called
+2024-04-04 23:18:27,414 INFO  --- c.l.t.c.QrCodeColorController : Saving qrCodeColorDto in cache
+2024-04-04 23:20:33,562 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/{id} was called
+2024-04-04 23:20:33,562 INFO  --- c.l.t.c.QrCodeColorController : Saving qrCodeColorDto in cache
+2024-04-04 23:20:33,602 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 500 - / by zero
+2024-04-04 23:26:27,857 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 405 - Request method 'GET' is not supported
+2024-04-04 23:26:48,306 INFO  --- c.l.t.controller.QrCodeController : GET endpoint /api/v1/qr-code/ was called
+2024-04-04 23:35:14,461 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/add/list was called
+2024-04-04 23:35:27,953 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/add/list was called
+2024-04-04 23:44:01,956 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/add/list was called
+2024-04-04 23:44:02,005 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 500 - Cannot invoke "java.util.List.stream()" because the return value of "com.lagodich.textqrconvertor.entity.QrCode.getColors()" is null
+2024-04-04 23:46:37,685 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/add/list was called
+2024-04-04 23:46:37,731 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 500 - Cannot invoke "java.util.List.stream()" because the return value of "com.lagodich.textqrconvertor.entity.QrCode.getColors()" is null
+2024-04-04 23:49:56,278 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/add/list was called
+2024-04-04 23:49:56,315 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 500 - Cannot invoke "java.util.List.stream()" because the return value of "com.lagodich.textqrconvertor.entity.QrCode.getColors()" is null
+2024-04-04 23:49:57,428 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/add/list was called
+2024-04-04 23:49:57,433 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 500 - Cannot invoke "java.util.List.stream()" because the return value of "com.lagodich.textqrconvertor.entity.QrCode.getColors()" is null
+2024-04-04 23:50:56,273 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/add/list was called
+2024-04-04 23:50:56,312 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 500 - Cannot invoke "java.util.List.stream()" because the return value of "com.lagodich.textqrconvertor.entity.QrCode.getColors()" is null
+2024-04-04 23:50:56,957 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/add/list was called
+2024-04-04 23:50:56,963 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 500 - Cannot invoke "java.util.List.stream()" because the return value of "com.lagodich.textqrconvertor.entity.QrCode.getColors()" is null
+2024-04-04 23:52:41,577 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/add/list was called
+2024-04-04 23:52:41,591 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 500 - Cannot invoke "java.util.List.stream()" because the return value of "com.lagodich.textqrconvertor.entity.QrCode.getColors()" is null
+2024-04-04 23:53:01,244 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/add/list was called
+2024-04-04 23:53:01,254 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 500 - Cannot invoke "java.util.List.stream()" because the return value of "com.lagodich.textqrconvertor.entity.QrCode.getColors()" is null
+2024-04-04 23:54:22,199 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/add/list was called
+2024-04-04 23:56:26,095 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/add/list was called
+2024-04-05 00:07:47,932 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/add/list was called
+2024-04-05 00:07:47,971 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 500 - Cannot invoke "java.util.List.stream()" because the return value of "com.lagodich.textqrconvertor.entity.QrCode.getColors()" is null
+2024-04-05 00:11:54,826 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/add/list was called
+2024-04-05 00:15:33,590 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/add/list was called
