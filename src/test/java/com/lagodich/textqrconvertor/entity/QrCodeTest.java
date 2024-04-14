@@ -3,9 +3,26 @@ package com.lagodich.textqrconvertor.entity;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class QrCodeTest {
+
+    @Test
+    void testColorsListInitialization() {
+        // Create a new instance of QrCode
+        QrCode qrCode = new QrCode();
+
+        // Get the colors list from the instance
+        List<QrCodeColor> colors = qrCode.getColors();
+
+        // Assert that the colors list is not null
+        assertNotNull(colors);
+
+        // Optionally, you can also assert other properties of the list if needed
+        // For example, you can check that the list is empty since it was just initialized
+        // assertEquals(0, colors.size());
+    }
 
     @Test
     void getColors() {
