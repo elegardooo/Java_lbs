@@ -170,3 +170,4 @@
 2024-04-14 19:32:07,537 INFO  --- c.l.t.controller.QrCodeController : GET endpoint /api/v1/qr-code was called
 2024-04-14 19:32:07,548 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/ was called
 2024-04-14 19:32:07,550 INFO  --- c.l.t.controller.QrCodeController : GET endpoint /api/v1/qr-code/ was called
+2024-04-14 19:35:54,717 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/add/list was called
