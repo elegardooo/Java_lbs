@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,9 +18,13 @@ public class QrCode {
   private String size;
 
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "qrCode")
-    private List<QrCodeColor> colors;
+  private List<QrCodeColor> colors = new ArrayList<>(); // Initialize the list
 
-  public QrCode() { //def
+  public QrCode() {
+    // Initialize the colors list if needed
+    if (colors == null) {
+      colors = new ArrayList<>();
+    }
   }
 
   public List<QrCodeColor> getColors() {
