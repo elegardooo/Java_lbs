@@ -20,11 +20,7 @@ public class QrCode {
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "qrCode")
   private List<QrCodeColor> colors = new ArrayList<>(); // Initialize the list
 
-  public QrCode() {
-    // Initialize the colors list if needed
-    if (colors == null) {
-      colors = new ArrayList<>();
-    }
+  public QrCode() {  //def
   }
 
   public List<QrCodeColor> getColors() {
