@@ -26,8 +26,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/qr-code/colors")
 public class QrCodeColorController {
 
-  private static final String ERROR_MSG = "There's error";
-
   private final QrCodeColorService qrCodeColorService;
   private final ResponseCache responseCache;
 
