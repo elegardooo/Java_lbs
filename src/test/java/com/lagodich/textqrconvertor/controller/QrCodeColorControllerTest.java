@@ -58,7 +58,7 @@ class QrCodeColorControllerTest {
     }
 
     @Test
-    void getColors() {
+    void getColors() throws QrCodeNotFoundException {
         // Mock request data
         Long id = 123L;
 

@@ -3,6 +3,8 @@ package com.lagodich.textqrconvertor.controller;
 import com.lagodich.textqrconvertor.cache.ResponseCache;
 import com.lagodich.textqrconvertor.dto.QrCodeColorDto;
 import com.lagodich.textqrconvertor.entity.QrCodeColor;
+import com.lagodich.textqrconvertor.exceptions.QrCodeAlreadyExistException;
+import com.lagodich.textqrconvertor.exceptions.QrCodeNotFoundException;
 import com.lagodich.textqrconvertor.service.QrCodeColorService;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
@@ -37,22 +39,15 @@ public class QrCodeColorController {
 
   @PostMapping(value = "/")
     public <T> ResponseEntity<T> createColors(@RequestBody QrCodeColor colors,
-                                       @RequestParam Long qrCodeId) {
+                                       @RequestParam Long qrCodeId) throws QrCodeAlreadyExistException {
     log.info("POST endpoint /api/v1/qr-code/colors/ was called");
-    try {
-      return (ResponseEntity<T>) ResponseEntity.ok(qrCodeColorService.createColors(colors, qrCodeId));
-    } catch (Exception e) {
-      return (ResponseEntity<T>) ResponseEntity
-                    .badRequest()
-                    .body(ERROR_MSG);
-    }
+    return (ResponseEntity<T>) ResponseEntity.ok(qrCodeColorService.createColors(colors, qrCodeId));
   }
 
   @GetMapping(value = "/{id}")
-    public <T> ResponseEntity<T> getColors(@PathVariable Long id) {
+    public <T> ResponseEntity<T> getColors(@PathVariable Long id) throws QrCodeNotFoundException {
     log.info("GET endpoint /api/v1/qr-code/colors/{id} was called");
-    try {
-      QrCodeColorDto qrCodeColorDto = responseCache.getQrCodeColor(id);
+    QrCodeColorDto qrCodeColorDto = responseCache.getQrCodeColor(id);
       if (qrCodeColorDto != null) {
         log.info("Found qrCodeColorDto in cache");
         return (ResponseEntity<T>) ResponseEntity.ok(qrCodeColorDto);
@@ -62,11 +57,6 @@ public class QrCodeColorController {
         responseCache.saveQrCodeColor(id, qrCodeColorDto);
         return (ResponseEntity<T>) ResponseEntity.ok(qrCodeColorDto);
       }
-    } catch (Exception e) {
-      return (ResponseEntity<T>) ResponseEntity
-                    .badRequest()
-                    .body(ERROR_MSG);
-    }
   }
 
   @GetMapping(value = "/database/{colorId}")  //useful request
@@ -78,28 +68,18 @@ public class QrCodeColorController {
 
   @PutMapping(value = "/")
     public <T> ResponseEntity<T> updateColors(@RequestBody QrCodeColor colors,
-                                       @RequestParam Long id) {
+                                       @RequestParam Long id) throws QrCodeNotFoundException, QrCodeAlreadyExistException {
     log.info("PUT endpoint /api/v1/qr-code/colors/ was called");
-    try {
-      return (ResponseEntity<T>) ResponseEntity.ok(qrCodeColorService.updateColors(colors, id));
-    } catch (Exception e) {
-      return (ResponseEntity<T>) ResponseEntity
-                    .badRequest()
-                    .body(ERROR_MSG);
-    }
+    return (ResponseEntity<T>) ResponseEntity.ok(qrCodeColorService.updateColors(colors, id));
   }
 
   @DeleteMapping(value = "/{id}")
   public ResponseEntity<String> deleteColors(@PathVariable Long id) {
     log.info("DELETE endpoint /api/v1/qr-code/colors/{id} was called");
-    try {
-      responseCache.removeQrCodeColor(id);
-      log.info("Color was removed from cache");
-      qrCodeColorService.deleteColors(id);
-      return ResponseEntity.ok("Success");
-    } catch (Exception e) {
-      return ResponseEntity.badRequest().body(ERROR_MSG);
-    }
+    responseCache.removeQrCodeColor(id);
+    log.info("Color was removed from cache");
+    qrCodeColorService.deleteColors(id);
+    return ResponseEntity.ok("Success");
   }
 
 }
