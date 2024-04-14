@@ -25,6 +25,16 @@ class QrCodeTest {
     }
 
     @Test
+    void testColorsListInitializedIfNull() {
+        // Create a new instance of QrCode with null colors list
+        QrCode qrCode = new QrCode();
+        qrCode.setColors(null);
+
+        // Assert that the colors list is initialized when accessed
+        assertNotNull(qrCode.getColors());
+    }
+
+    @Test
     void getColors() {
         // Create a QrCode entity instance
         QrCode qrCode = new QrCode();
