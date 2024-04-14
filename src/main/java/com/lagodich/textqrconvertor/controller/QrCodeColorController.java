@@ -90,16 +90,15 @@ public class QrCodeColorController {
   }
 
   @DeleteMapping(value = "/{id}")
-    public <T> ResponseEntity<T> deleteColors(@PathVariable Long id) {
+  public ResponseEntity<String> deleteColors(@PathVariable Long id) {
     log.info("DELETE endpoint /api/v1/qr-code/colors/{id} was called");
     try {
       responseCache.removeQrCodeColor(id);
       log.info("Color was removed from cache");
-      return (ResponseEntity<T>) ResponseEntity.ok(qrCodeColorService.deleteColors(id));
+      qrCodeColorService.deleteColors(id);
+      return ResponseEntity.ok("Success");
     } catch (Exception e) {
-      return (ResponseEntity<T>) ResponseEntity
-                    .badRequest()
-                    .body(ERROR_MSG);
+      return ResponseEntity.badRequest().body(ERROR_MSG);
     }
   }
 

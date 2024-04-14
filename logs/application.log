@@ -75,3 +75,55 @@
 2024-04-05 00:07:47,971 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 500 - Cannot invoke "java.util.List.stream()" because the return value of "com.lagodich.textqrconvertor.entity.QrCode.getColors()" is null
 2024-04-05 00:11:54,826 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/add/list was called
 2024-04-05 00:15:33,590 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/add/list was called
+2024-04-14 18:33:19,617 INFO  --- c.l.t.c.QrCodeColorController : POST endpoint /api/v1/qr-code/colors/ was called
+2024-04-14 18:35:14,132 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/{id} was called
+2024-04-14 18:35:14,137 INFO  --- c.l.t.c.QrCodeColorController : Found qrCodeColorDto in cache
+2024-04-14 18:35:14,155 INFO  --- c.l.t.c.QrCodeColorController : POST endpoint /api/v1/qr-code/colors/ was called
+2024-04-14 18:36:12,628 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/{id} was called
+2024-04-14 18:36:12,632 INFO  --- c.l.t.c.QrCodeColorController : Found qrCodeColorDto in cache
+2024-04-14 18:36:12,649 INFO  --- c.l.t.c.QrCodeColorController : POST endpoint /api/v1/qr-code/colors/ was called
+2024-04-14 18:36:12,652 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} was called
+2024-04-14 18:37:23,204 INFO  --- c.l.t.c.QrCodeColorController : PUT endpoint /api/v1/qr-code/colors/ was called
+2024-04-14 18:37:23,237 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/{id} was called
+2024-04-14 18:37:23,237 INFO  --- c.l.t.c.QrCodeColorController : Found qrCodeColorDto in cache
+2024-04-14 18:37:23,242 INFO  --- c.l.t.c.QrCodeColorController : POST endpoint /api/v1/qr-code/colors/ was called
+2024-04-14 18:37:23,245 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} was called
+2024-04-14 18:39:36,140 INFO  --- c.l.t.c.QrCodeColorController : PUT endpoint /api/v1/qr-code/colors/ was called
+2024-04-14 18:39:36,170 INFO  --- c.l.t.c.QrCodeColorController : DELETE endpoint /api/v1/qr-code/colors/{id} was called
+2024-04-14 18:39:36,171 INFO  --- c.l.t.c.QrCodeColorController : Color was removed from cache
+2024-04-14 18:39:36,192 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/{id} was called
+2024-04-14 18:39:36,192 INFO  --- c.l.t.c.QrCodeColorController : Found qrCodeColorDto in cache
+2024-04-14 18:39:36,196 INFO  --- c.l.t.c.QrCodeColorController : POST endpoint /api/v1/qr-code/colors/ was called
+2024-04-14 18:39:36,199 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} was called
+2024-04-14 18:41:07,648 INFO  --- c.l.t.c.QrCodeColorController : PUT endpoint /api/v1/qr-code/colors/ was called
+2024-04-14 18:41:07,687 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/{id} was called
+2024-04-14 18:41:07,688 INFO  --- c.l.t.c.QrCodeColorController : Found qrCodeColorDto in cache
+2024-04-14 18:41:07,692 INFO  --- c.l.t.c.QrCodeColorController : POST endpoint /api/v1/qr-code/colors/ was called
+2024-04-14 18:41:07,694 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} was called
+2024-04-14 18:42:22,991 INFO  --- c.l.t.c.QrCodeColorController : PUT endpoint /api/v1/qr-code/colors/ was called
+2024-04-14 18:42:23,033 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/{id} was called
+2024-04-14 18:42:23,034 INFO  --- c.l.t.c.QrCodeColorController : Found qrCodeColorDto in cache
+2024-04-14 18:42:23,039 INFO  --- c.l.t.c.QrCodeColorController : POST endpoint /api/v1/qr-code/colors/ was called
+2024-04-14 18:42:23,042 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} was called
+2024-04-14 18:42:48,924 INFO  --- c.l.t.c.QrCodeColorController : PUT endpoint /api/v1/qr-code/colors/ was called
+2024-04-14 18:42:48,961 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/{id} was called
+2024-04-14 18:42:48,961 INFO  --- c.l.t.c.QrCodeColorController : Found qrCodeColorDto in cache
+2024-04-14 18:42:48,965 INFO  --- c.l.t.c.QrCodeColorController : POST endpoint /api/v1/qr-code/colors/ was called
+2024-04-14 18:42:48,969 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} was called
+2024-04-14 18:43:24,716 INFO  --- c.l.t.c.QrCodeColorController : PUT endpoint /api/v1/qr-code/colors/ was called
+2024-04-14 18:43:24,752 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/{id} was called
+2024-04-14 18:43:24,752 INFO  --- c.l.t.c.QrCodeColorController : Found qrCodeColorDto in cache
+2024-04-14 18:43:24,757 INFO  --- c.l.t.c.QrCodeColorController : POST endpoint /api/v1/qr-code/colors/ was called
+2024-04-14 18:43:24,760 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} was called
+2024-04-14 18:45:02,078 INFO  --- c.l.t.c.QrCodeColorController : PUT endpoint /api/v1/qr-code/colors/ was called
+2024-04-14 18:45:02,122 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/{id} was called
+2024-04-14 18:45:02,123 INFO  --- c.l.t.c.QrCodeColorController : Found qrCodeColorDto in cache
+2024-04-14 18:45:02,127 INFO  --- c.l.t.c.QrCodeColorController : POST endpoint /api/v1/qr-code/colors/ was called
+2024-04-14 18:45:02,130 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} was called
+2024-04-14 18:46:22,264 INFO  --- c.l.t.c.QrCodeColorController : PUT endpoint /api/v1/qr-code/colors/ was called
+2024-04-14 18:46:22,296 INFO  --- c.l.t.c.QrCodeColorController : DELETE endpoint /api/v1/qr-code/colors/{id} was called
+2024-04-14 18:46:22,297 INFO  --- c.l.t.c.QrCodeColorController : Color was removed from cache
+2024-04-14 18:46:22,301 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/{id} was called
+2024-04-14 18:46:22,301 INFO  --- c.l.t.c.QrCodeColorController : Found qrCodeColorDto in cache
+2024-04-14 18:46:22,306 INFO  --- c.l.t.c.QrCodeColorController : POST endpoint /api/v1/qr-code/colors/ was called
+2024-04-14 18:46:22,309 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} was called
