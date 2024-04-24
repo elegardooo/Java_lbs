@@ -185,3 +185,32 @@
 2024-04-24 14:43:52,272 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 405 - Request method 'GET' is not supported
 2024-04-24 14:43:52,275 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 404 - No endpoint GET /example.
 2024-04-24 14:43:52,276 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 500 - Internal Server Error
+2024-04-24 15:55:30,065 INFO  --- c.l.t.c.QrCodeColorController : PUT endpoint /api/v1/qr-code/colors/ 0
+2024-04-24 15:55:30,111 INFO  --- c.l.t.c.QrCodeColorController : DELETE endpoint /api/v1/qr-code/colors/{id} 0
+2024-04-24 15:55:30,112 INFO  --- c.l.t.c.QrCodeColorController : Color was removed from cache
+2024-04-24 15:55:30,115 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/{id} 0
+2024-04-24 15:55:30,116 INFO  --- c.l.t.c.QrCodeColorController : Found qrCodeColorDto in cache
+2024-04-24 15:55:30,120 INFO  --- c.l.t.c.QrCodeColorController : POST endpoint /api/v1/qr-code/colors/ 0
+2024-04-24 15:55:30,124 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} 0
+2024-04-24 15:59:34,138 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/add/list 0
+2024-04-24 15:59:34,197 INFO  --- c.l.t.controller.QrCodeController : PUT endpoint /api/v1/qr-code/{id} 0
+2024-04-24 15:59:34,200 INFO  --- c.l.t.controller.QrCodeController : DELETE endpoint /api/v1/qr-code/{id} 0
+2024-04-24 15:59:34,205 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/ 0
+2024-04-24 15:59:34,208 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/ 0
+2024-04-24 15:59:34,212 INFO  --- c.l.t.controller.QrCodeController : GET endpoint /api/v1/qr-code 0
+2024-04-24 15:59:34,224 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/ 0
+2024-04-24 15:59:34,227 INFO  --- c.l.t.controller.QrCodeController : GET endpoint /api/v1/qr-code/ 0
+2024-04-24 15:59:40,856 INFO  --- c.l.t.c.QrCodeColorController : PUT endpoint /api/v1/qr-code/colors/ 0
+2024-04-24 15:59:40,881 INFO  --- c.l.t.c.QrCodeColorController : DELETE endpoint /api/v1/qr-code/colors/{id} 0
+2024-04-24 15:59:40,882 INFO  --- c.l.t.c.QrCodeColorController : Color was removed from cache
+2024-04-24 15:59:40,885 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/{id} 0
+2024-04-24 15:59:40,886 INFO  --- c.l.t.c.QrCodeColorController : Found qrCodeColorDto in cache
+2024-04-24 15:59:40,890 INFO  --- c.l.t.c.QrCodeColorController : POST endpoint /api/v1/qr-code/colors/ 0
+2024-04-24 15:59:40,892 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} 0
+2024-04-24 15:59:57,458 INFO  --- c.l.t.c.QrCodeColorController : PUT endpoint /api/v1/qr-code/colors/ 0
+2024-04-24 15:59:57,483 INFO  --- c.l.t.c.QrCodeColorController : DELETE endpoint /api/v1/qr-code/colors/{id} 0
+2024-04-24 15:59:57,484 INFO  --- c.l.t.c.QrCodeColorController : Color was removed from cache
+2024-04-24 15:59:57,487 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/{id} 0
+2024-04-24 15:59:57,488 INFO  --- c.l.t.c.QrCodeColorController : Found qrCodeColorDto in cache
+2024-04-24 15:59:57,492 INFO  --- c.l.t.c.QrCodeColorController : POST endpoint /api/v1/qr-code/colors/ 0
+2024-04-24 15:59:57,495 INFO  --- c.l.t.c.QrCodeColorController : GET endpoint /api/v1/qr-code/colors/database/{colorId} 0

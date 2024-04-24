@@ -6,6 +6,7 @@ import com.lagodich.textqrconvertor.entity.QrCodeColor;
 import com.lagodich.textqrconvertor.exceptions.QrCodeAlreadyExistException;
 import com.lagodich.textqrconvertor.exceptions.QrCodeNotFoundException;
 import com.lagodich.textqrconvertor.service.QrCodeColorService;
+import com.lagodich.textqrconvertor.service.RequestCounterService;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -28,13 +29,16 @@ class QrCodeColorControllerTest {
     @Mock
     private ResponseCache responseCache;
 
+    @Mock
+    private RequestCounterService requestCounterService;
+
     @InjectMocks
     private QrCodeColorController qrCodeColorController;
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
-        qrCodeColorController = new QrCodeColorController(qrCodeColorService, responseCache);
+        qrCodeColorController = new QrCodeColorController(qrCodeColorService, responseCache, requestCounterService);
     }
 
     @Test
