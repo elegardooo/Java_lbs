@@ -8,7 +8,7 @@ import com.lagodich.textqrconvertor.repository.QrCodeRepo;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -38,36 +38,6 @@ class QrCodeServiceTest {
         // Assert
         assertEquals(qrCode.getContent(), createdQrCode.getContent());
         assertEquals(qrCode.getSize(), createdQrCode.getSize());
-    }
-
-    @Test
-    void createQrCodes() {
-        // Arrange
-        QrCodeRepo qrCodeRepo = Mockito.mock(QrCodeRepo.class);
-        QrCodeService qrCodeService = new QrCodeService(qrCodeRepo);
-
-        List<QrCode> qrCodes = new ArrayList<>();
-        QrCode qrCode1 = new QrCode();
-        qrCode1.setContent("Test Content 1");
-        qrCode1.setSize("Large");
-        qrCodes.add(qrCode1);
-
-        QrCode qrCode2 = new QrCode();
-        qrCode2.setContent("Test Content 2");
-        qrCode2.setSize("Small");
-        qrCodes.add(qrCode2);
-
-        when(qrCodeRepo.saveAll(any())).thenReturn(qrCodes);
-
-        // Act
-        List<QrCode> createdQrCodes = qrCodeService.createQrCodes(qrCodes);
-
-        // Assert
-        assertEquals(qrCodes.size(), createdQrCodes.size());
-        for (int i = 0; i < qrCodes.size(); i++) {
-            assertEquals(qrCodes.get(i).getContent(), createdQrCodes.get(i).getContent());
-            assertEquals(qrCodes.get(i).getSize(), createdQrCodes.get(i).getSize());
-        }
     }
 
     @Test
@@ -183,5 +153,41 @@ class QrCodeServiceTest {
 
         // Act & Assert
         assertThrows(QrCodeAlreadyExistException.class, () -> qrCodeService.updateQrCode(id, updatedQrCode));
+    }
+
+    @Test
+    void createQrCodes() throws QrCodeAlreadyExistException {
+        // Mock QrCodeRepo
+        QrCodeRepo qrCodeRepo = Mockito.mock(QrCodeRepo.class);
+
+        // Create QrCodeService instance with the mocked repo
+        QrCodeService qrCodeService = new QrCodeService(qrCodeRepo);
+
+        // Create some sample QrCode objects
+        QrCode qrCode1 = new QrCode();
+        qrCode1.setContent("Content1");
+        qrCode1.setSize("Size1");
+
+        QrCode qrCode2 = new QrCode();
+        qrCode2.setContent("Content2");
+        qrCode2.setSize("Size2");
+
+        QrCode qrCode3 = new QrCode();
+        qrCode3.setContent("Content3");
+        qrCode3.setSize("Size3");
+
+        List<QrCode> qrCodeList = Arrays.asList(qrCode1, qrCode2, qrCode3);
+
+        // Mock the save method of qrCodeRepo to return the same QrCode object that was passed to it
+        when(qrCodeRepo.save(any(QrCode.class))).thenAnswer(invocation -> invocation.getArgument(0));
+
+        // Call the method to be tested
+        List<QrCode> savedQrCodes = qrCodeService.createQrCodes(qrCodeList);
+
+        // Verify that save method was called for each QrCode object
+        verify(qrCodeRepo, times(3)).save(any(QrCode.class));
+
+        // Check if the returned list has the same QrCode objects
+        assertEquals(qrCodeList, savedQrCodes);
     }
 }
