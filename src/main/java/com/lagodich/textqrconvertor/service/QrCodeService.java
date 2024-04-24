@@ -7,7 +7,6 @@ import com.lagodich.textqrconvertor.exceptions.QrCodeNotFoundException;
 import com.lagodich.textqrconvertor.repository.QrCodeRepo;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.StreamSupport;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -56,9 +55,9 @@ public class QrCodeService {
   }
 
   public List<QrCode> createQrCodes(List<QrCode> qrCodes) {
-    Iterable<QrCode> savedQrCodesIterable = qrCodeRepo.saveAll(qrCodes);
     List<QrCode> qrCodeList = new ArrayList<>();
-    StreamSupport.stream(savedQrCodesIterable.spliterator(), false)
+    qrCodes.stream()
+            .map(qrCodeRepo::save)
             .forEach(qrCodeList::add);
     return qrCodeList;
   }

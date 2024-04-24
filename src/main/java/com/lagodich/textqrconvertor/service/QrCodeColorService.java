@@ -43,7 +43,7 @@ public class QrCodeColorService {
   public QrCodeColorDto updateColors(QrCodeColor color, Long id) {
     QrCodeColor updateQrCodeColor = qrCodeColorRepo.findById(id).orElse(null);
       assert updateQrCodeColor != null;
-      updateQrCodeColor.setColor(color.getColor());
+    updateQrCodeColor.setColor(color.getColor());
     updateQrCodeColor.setBgcolor(color.getBgcolor());
     qrCodeColorRepo.save(updateQrCodeColor);
     return QrCodeColorDto.toModel(updateQrCodeColor);

@@ -65,7 +65,7 @@ public class QrCodeController {
   }
 
   @PostMapping(value = "/add/list")
-    public <T> ResponseEntity<T> createQrCodes(@RequestBody List<QrCode> qrCodes) {
+  public <T> ResponseEntity<T> createQrCodes(@RequestBody List<QrCode> qrCodes) {
     log.info("POST endpoint /api/v1/qr-code/add/list was called");
     qrCodes = qrCodes.stream()
             .toList();

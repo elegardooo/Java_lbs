@@ -46,15 +46,15 @@ public class QrCodeColorController {
     public <T> ResponseEntity<T> getColors(@PathVariable Long id) throws QrCodeNotFoundException {
     log.info("GET endpoint /api/v1/qr-code/colors/{id} was called");
     QrCodeColorDto qrCodeColorDto = responseCache.getQrCodeColor(id);
-      if (qrCodeColorDto != null) {
-        log.info("Found qrCodeColorDto in cache");
-        return (ResponseEntity<T>) ResponseEntity.ok(qrCodeColorDto);
-      } else {
-        log.info("Saving qrCodeColorDto in cache");
-        qrCodeColorDto = qrCodeColorService.getColors(id);
-        responseCache.saveQrCodeColor(id, qrCodeColorDto);
-        return (ResponseEntity<T>) ResponseEntity.ok(qrCodeColorDto);
-      }
+    if (qrCodeColorDto != null) {
+      log.info("Found qrCodeColorDto in cache");
+      return (ResponseEntity<T>) ResponseEntity.ok(qrCodeColorDto);
+    } else {
+      log.info("Saving qrCodeColorDto in cache");
+      qrCodeColorDto = qrCodeColorService.getColors(id);
+      responseCache.saveQrCodeColor(id, qrCodeColorDto);
+      return (ResponseEntity<T>) ResponseEntity.ok(qrCodeColorDto);
+    }
   }
 
   @GetMapping(value = "/database/{colorId}")  //useful request
