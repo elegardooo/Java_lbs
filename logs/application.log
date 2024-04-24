@@ -171,3 +171,17 @@
 2024-04-14 19:32:07,548 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/ was called
 2024-04-14 19:32:07,550 INFO  --- c.l.t.controller.QrCodeController : GET endpoint /api/v1/qr-code/ was called
 2024-04-14 19:35:54,717 INFO  --- c.l.t.controller.QrCodeController : POST endpoint /api/v1/qr-code/add/list was called
+2024-04-24 14:37:32,386 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 404 - No endpoint GET /example.
+2024-04-24 14:40:18,714 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 404 - No endpoint GET /example.
+2024-04-24 14:41:52,005 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 404 - No endpoint GET /example.
+2024-04-24 14:42:25,095 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 405 - Request method 'GET' is not supported
+2024-04-24 14:42:25,107 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 404 - No endpoint GET /example.
+2024-04-24 14:42:38,169 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 405 - Request method 'GET' is not supported
+2024-04-24 14:42:38,176 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 404 - No endpoint GET /example.
+2024-04-24 14:43:05,800 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 405 - Request method 'GET' is not supported
+2024-04-24 14:43:05,806 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 404 - No endpoint GET /example.
+2024-04-24 14:43:05,808 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 500 - Internal Server Error
+2024-04-24 14:43:52,258 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 500 - Internal Server Error
+2024-04-24 14:43:52,272 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 405 - Request method 'GET' is not supported
+2024-04-24 14:43:52,275 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 404 - No endpoint GET /example.
+2024-04-24 14:43:52,276 ERROR --- c.l.t.e.GlobalExceptionHandler : ERROR 500 - Internal Server Error
