@@ -27,8 +27,6 @@ class QrCodeControllerTest {
     private QrCodeService qrCodeService;
     @Mock
     private QrCodeService.QrTextService qrCodeConvertorService;
-    @Mock
-    private RequestCounterService requestCounterService;
 
     @InjectMocks
     private QrCodeController qrCodeController;
@@ -36,7 +34,7 @@ class QrCodeControllerTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
-        qrCodeController = new QrCodeController(qrCodeConvertorService, qrCodeService, requestCounterService);
+        qrCodeController = new QrCodeController(qrCodeConvertorService, qrCodeService);
     }
 
     @Test
@@ -52,7 +50,7 @@ class QrCodeControllerTest {
         QrCodeService.QrTextService qrTextServiceMock = mock(QrCodeService.QrTextService.class);
         when(qrTextServiceMock.qrCode(text, size, color, bgcolor)).thenReturn(qrCodeBytes);
 
-        QrCodeController qrCodeController = new QrCodeController(qrTextServiceMock, null, requestCounterService);
+        QrCodeController qrCodeController = new QrCodeController(qrTextServiceMock, null);
 
         // Act
         ResponseEntity<byte[]> response = qrCodeController.text(text, size, color, bgcolor);
@@ -71,7 +69,7 @@ class QrCodeControllerTest {
         QrCodeService qrCodeServiceMock = mock(QrCodeService.class);
         when(qrCodeServiceMock.createQrCode(qrCode)).thenReturn(qrCode);
 
-        QrCodeController qrCodeController = new QrCodeController(null, qrCodeServiceMock, requestCounterService);
+        QrCodeController qrCodeController = new QrCodeController(null, qrCodeServiceMock);
 
         // Act
         ResponseEntity<String> response = qrCodeController.createQrCode(qrCode);
@@ -91,7 +89,7 @@ class QrCodeControllerTest {
         QrCodeService qrCodeServiceMock = mock(QrCodeService.class);
         when(qrCodeServiceMock.createQrCode(qrCode)).thenThrow(new QrCodeAlreadyExistException());
 
-        QrCodeController qrCodeController = new QrCodeController(null, qrCodeServiceMock, requestCounterService);
+        QrCodeController qrCodeController = new QrCodeController(null, qrCodeServiceMock);
 
         // Act
         ResponseEntity<String> response = qrCodeController.createQrCode(qrCode);
@@ -110,7 +108,7 @@ class QrCodeControllerTest {
         QrCodeService qrCodeServiceMock = mock(QrCodeService.class);
         when(qrCodeServiceMock.createQrCode(qrCode)).thenThrow(new RuntimeException());
 
-        QrCodeController qrCodeController = new QrCodeController(null, qrCodeServiceMock, requestCounterService);
+        QrCodeController qrCodeController = new QrCodeController(null, qrCodeServiceMock);
 
         // Act
         ResponseEntity<String> response = qrCodeController.createQrCode(qrCode);
@@ -131,7 +129,7 @@ class QrCodeControllerTest {
         QrCodeService qrCodeServiceMock = mock(QrCodeService.class);
         when(qrCodeServiceMock.createQrCodes(qrCodes)).thenReturn(qrCodes);
 
-        QrCodeController qrCodeController = new QrCodeController(null, qrCodeServiceMock, requestCounterService);
+        QrCodeController qrCodeController = new QrCodeController(null, qrCodeServiceMock);
 
         // Act
         ResponseEntity<List<QrCode>> response = qrCodeController.createQrCodes(qrCodes);
@@ -152,7 +150,7 @@ class QrCodeControllerTest {
         QrCodeService qrCodeServiceMock = mock(QrCodeService.class);
         when(qrCodeServiceMock.getOneQrCode(id)).thenReturn(qrCodeDto);
 
-        QrCodeController qrCodeController = new QrCodeController(null, qrCodeServiceMock, requestCounterService);
+        QrCodeController qrCodeController = new QrCodeController(null, qrCodeServiceMock);
 
         // Act
         ResponseEntity<QrCodeDto> response = qrCodeController.getOneQrCode(id);
@@ -171,7 +169,7 @@ class QrCodeControllerTest {
         QrCodeService qrCodeServiceMock = mock(QrCodeService.class);
         when(qrCodeServiceMock.deleteQrCode(id)).thenReturn(id);
 
-        QrCodeController qrCodeController = new QrCodeController(null, qrCodeServiceMock, requestCounterService);
+        QrCodeController qrCodeController = new QrCodeController(null, qrCodeServiceMock);
 
         // Act
         ResponseEntity<Long> response = qrCodeController.deleteQrCode(id);
@@ -194,7 +192,7 @@ class QrCodeControllerTest {
         QrCodeService qrCodeServiceMock = mock(QrCodeService.class);
         when(qrCodeServiceMock.updateQrCode(id, updatedQrCode)).thenReturn(updatedQrCode);
 
-        QrCodeController qrCodeController = new QrCodeController(null, qrCodeServiceMock, requestCounterService);
+        QrCodeController qrCodeController = new QrCodeController(null, qrCodeServiceMock);
 
         // Act
         ResponseEntity<QrCode> response = qrCodeController.updateQrCode(id, updatedQrCode);

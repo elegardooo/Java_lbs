@@ -1,13 +1,10 @@
 package com.lagodich.textqrconvertor.controller;
 
-import com.lagodich.textqrconvertor.dto.QrCodeDto;
 import com.lagodich.textqrconvertor.entity.QrCode;
 import com.lagodich.textqrconvertor.exceptions.QrCodeAlreadyExistException;
 import com.lagodich.textqrconvertor.exceptions.QrCodeNotFoundException;
 import com.lagodich.textqrconvertor.service.QrCodeService;
 import java.util.List;
-
-import com.lagodich.textqrconvertor.service.RequestCounterService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -30,18 +27,16 @@ public class QrCodeController {
   private static final String ERROR_MSG = "There's error";
   private final QrCodeService.QrTextService qrConvertorService;
   private final QrCodeService qrCodeService;
-  private final RequestCounterService requestCounterService;
 
   @Autowired
-    public QrCodeController(QrCodeService.QrTextService qrConvertorService, QrCodeService qrCodeService, RequestCounterService requestCounterService) {
+    public QrCodeController(QrCodeService.QrTextService qrConvertorService, QrCodeService qrCodeService) {
     this.qrConvertorService = qrConvertorService;
     this.qrCodeService = qrCodeService;
-      this.requestCounterService = requestCounterService;
   }
 
   @GetMapping(value = "", produces = MediaType.IMAGE_PNG_VALUE)
     public ResponseEntity<byte[]> text(@RequestParam String text, @RequestParam String size, @RequestParam String color, @RequestParam String bgcolor) {
-    log.info("GET endpoint /api/v1/qr-code " + requestCounterService.incrementAndGet());
+    log.info("GET endpoint /api/v1/qr-code ");
     byte[] qrCode = qrConvertorService.qrCode(text, size, color, bgcolor);
     return ResponseEntity
                 .ok()
@@ -51,7 +46,7 @@ public class QrCodeController {
 
   @PostMapping(value = "/")
     public ResponseEntity<String> createQrCode(@RequestBody QrCode qrCode) {
-    log.info("POST endpoint /api/v1/qr-code/ " + requestCounterService.incrementAndGet());
+    log.info("POST endpoint /api/v1/qr-code/ ");
     try {
       qrCodeService.createQrCode(qrCode);
       return ResponseEntity
@@ -70,7 +65,7 @@ public class QrCodeController {
 
   @PostMapping(value = "/add/list")
   public <T> ResponseEntity<T> createQrCodes(@RequestBody List<QrCode> qrCodes) {
-    log.info("POST endpoint /api/v1/qr-code/add/list " + requestCounterService.incrementAndGet());
+    log.info("POST endpoint /api/v1/qr-code/add/list ");
     qrCodes = qrCodes.stream()
             .toList();
     List<QrCode> createdQrCodes = qrCodeService.createQrCodes(qrCodes);
@@ -81,7 +76,7 @@ public class QrCodeController {
 
   @GetMapping(value = "/")
     public <T> ResponseEntity<T> getOneQrCode(@RequestParam Long id) {
-    log.info("GET endpoint /api/v1/qr-code/ " + requestCounterService.incrementAndGet());
+    log.info("GET endpoint /api/v1/qr-code/ ");
     try {
       return (ResponseEntity<T>) ResponseEntity.ok(qrCodeService.getOneQrCode(id));
     } catch (QrCodeNotFoundException e) {
@@ -97,7 +92,7 @@ public class QrCodeController {
 
   @DeleteMapping(value = "/{id}")
     public <T> ResponseEntity<T> deleteQrCode(@PathVariable Long id) {
-    log.info("DELETE endpoint /api/v1/qr-code/{id} " + requestCounterService.incrementAndGet());
+    log.info("DELETE endpoint /api/v1/qr-code/{id} ");
     try {
       return (ResponseEntity<T>) ResponseEntity.ok(qrCodeService.deleteQrCode(id));
     } catch (Exception e) {
@@ -109,7 +104,7 @@ public class QrCodeController {
 
   @PutMapping(value = "/{id}")
     public <T> ResponseEntity<T> updateQrCode(@PathVariable Long id, @RequestBody QrCode qrCode) {
-    log.info("PUT endpoint /api/v1/qr-code/{id} " + requestCounterService.incrementAndGet());
+    log.info("PUT endpoint /api/v1/qr-code/{id} ");
     try {
       return (ResponseEntity<T>) ResponseEntity.ok(qrCodeService.updateQrCode(id, qrCode));
     } catch (QrCodeNotFoundException | QrCodeAlreadyExistException e) {

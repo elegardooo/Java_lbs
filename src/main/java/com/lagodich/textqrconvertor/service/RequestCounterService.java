@@ -1,13 +1,20 @@
 package com.lagodich.textqrconvertor.service;
 
 import java.util.concurrent.atomic.AtomicInteger;
-import org.springframework.stereotype.Service;
+import lombok.extern.slf4j.Slf4j;
 
-@Service
+@Slf4j
 public class RequestCounterService {
-  private final AtomicInteger counter = new AtomicInteger(0);
 
-  public synchronized int incrementAndGet() {
-    return counter.incrementAndGet();
+  private RequestCounterService() {}
+  private static AtomicInteger requestCount = new AtomicInteger(0);
+
+  public static synchronized void incrementRequestCount() {
+    requestCount.incrementAndGet();
   }
+
+  public static synchronized void getRequestCount() {
+    log.info("Total request count: " + requestCount.get());
+  }
+
 }

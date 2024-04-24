@@ -38,7 +38,7 @@ class QrCodeColorControllerTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
-        qrCodeColorController = new QrCodeColorController(qrCodeColorService, responseCache, requestCounterService);
+        qrCodeColorController = new QrCodeColorController(qrCodeColorService, responseCache);
     }
 
     @Test
