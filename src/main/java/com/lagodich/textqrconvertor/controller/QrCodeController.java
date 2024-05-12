@@ -9,15 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -35,6 +27,7 @@ public class QrCodeController {
   }
 
   @GetMapping(value = "", produces = MediaType.IMAGE_PNG_VALUE)
+  @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<byte[]> text(@RequestParam String text, @RequestParam String size, @RequestParam String color, @RequestParam String bgcolor) {
     log.info("GET endpoint /api/v1/qr-code ");
     byte[] qrCode = qrConvertorService.qrCode(text, size, color, bgcolor);
@@ -45,6 +38,7 @@ public class QrCodeController {
   }
 
   @PostMapping(value = "/")
+  @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<String> createQrCode(@RequestBody QrCode qrCode) {
     log.info("POST endpoint /api/v1/qr-code/ ");
     try {
@@ -75,6 +69,7 @@ public class QrCodeController {
   }
 
   @GetMapping(value = "/")
+  @CrossOrigin(origins = "http://localhost:3000")
     public <T> ResponseEntity<T> getOneQrCode(@RequestParam Long id) {
     log.info("GET endpoint /api/v1/qr-code/ ");
     try {
@@ -91,6 +86,7 @@ public class QrCodeController {
   }
 
   @DeleteMapping(value = "/{id}")
+  @CrossOrigin(origins = "http://localhost:3000")
     public <T> ResponseEntity<T> deleteQrCode(@PathVariable Long id) {
     log.info("DELETE endpoint /api/v1/qr-code/{id} ");
     try {
@@ -103,6 +99,7 @@ public class QrCodeController {
   }
 
   @PutMapping(value = "/{id}")
+  @CrossOrigin(origins = "http://localhost:3000")
     public <T> ResponseEntity<T> updateQrCode(@PathVariable Long id, @RequestBody QrCode qrCode) {
     log.info("PUT endpoint /api/v1/qr-code/{id} ");
     try {
